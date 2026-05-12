@@ -1,6 +1,7 @@
-import { COURSE_CARDS } from '@/content/home';
-import { motion } from 'motion/react';
-import Link from 'next/link';
+import { COURSE_CARDS } from "@/content/home";
+import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
 
 export function CourseSection() {
   return (
@@ -9,16 +10,19 @@ export function CourseSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-sm font-medium uppercase tracking-widest text-gray-500">با دوره</h2>
+          <h2 className="text-sm font-medium uppercase tracking-widest text-gray-500">
+            با دوره
+          </h2>
           <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
             صفر تا صد معامله‌گری در بازار رمزارزها
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-500">
-            همه چیزهایی که باید برای معامله‌گری در بازار ارزهای دیجیتال بدانید را فرا می‌گیرید.
+            همه چیزهایی که باید برای معامله‌گری در بازار ارزهای دیجیتال بدانید
+            را فرا می‌گیرید.
           </p>
         </motion.div>
 
@@ -28,17 +32,27 @@ export function CourseSection() {
               key={item.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               whileHover={{ y: -10 }}
               className="flex flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
             >
-              <div className="flex h-48 w-full items-center justify-center rounded-t-3xl border-b border-gray-100 bg-gray-100">
-                <span className="text-gray-400">Image</span>
+              <div className="flex h-48 w-full items-center justify-center rounded-t-3xl border-b border-gray-100 bg-white/10 top-4">
+                <Image
+                  src={item.image}
+                  width={350}
+                  height={350}
+                  alt=""
+                  className="object-contain "
+                />
               </div>
               <div className="flex-1 p-6 text-center">
-                <h3 className="mb-3 text-xl font-bold text-gray-800">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-500">{item.desc}</p>
+                <h3 className="mb-3 text-xl font-bold text-gray-800">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-500">
+                  {item.desc}
+                </p>
               </div>
             </motion.div>
           ))}
